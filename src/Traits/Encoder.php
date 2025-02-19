@@ -131,7 +131,7 @@ trait Encoder
             }
         }
 
-        return substr($encodedString, 0, 8);
+        return substr($encodedString, 0, 32);
     }
 
     /**
