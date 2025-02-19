@@ -39,11 +39,7 @@ class ConfirmTwoFactorAuthentication
             empty($code) ||
             ! $this->provider->verify(
                 $this->encode(
-                    substr(
-                        hash('sha256', decrypt($user->two_factor_secret)),
-                        0,
-                        8
-                    )
+                    hash('sha256', decrypt($user->two_factor_secret))
                 ),
                 $code
             )) {

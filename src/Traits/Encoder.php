@@ -118,16 +118,16 @@ trait Encoder
         $x = strlen($binaryString) % 40;
         if ($padding && $x !== 0) {
             if ($x === 8) {
-                return $encodedString . str_repeat($this->map[32], 6);
+                return substr($encodedString . str_repeat($this->map[32], 6), 0, 32);
             }
             if ($x === 16) {
-                return $encodedString . str_repeat($this->map[32], 4);
+                return substr($encodedString . str_repeat($this->map[32], 4), 0, 32);
             }
             if ($x === 24) {
-                return $encodedString . str_repeat($this->map[32], 3);
+                return substr($encodedString . str_repeat($this->map[32], 3), 0, 32);
             }
             if ($x === 32) {
-                return $encodedString . $this->map[32];
+                return substr($encodedString . $this->map[32], 0, 32);
             }
         }
 
